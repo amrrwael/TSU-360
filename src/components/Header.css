@@ -1,0 +1,96 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  align-items: center;
+  padding: 1rem 5%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: var(--white);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.logo{
+  width: 70px;
+}
+.logo h1 {
+  color:#0072BC;
+  font-weight: 700;
+  font-size: 1.5rem;
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  
+}
+
+.auth-btn {
+  width: 120px;
+  gap: 0px;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.login-btn {
+  background-color: transparent;
+  color: var(--primary-blue);
+  border: 2px solid var(--primary-blue);
+}
+
+.login-btn:hover {
+  background-color: rgba(37, 99, 235, 0.1);
+}
+
+.signup-btn {
+  background-color: var(--primary-blue);
+  color: var(--white);
+}
+
+.signup-btn:hover {
+  background-color: var(--secondary-blue);
+}
+
+.profile-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--gray);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.profile-btn svg {
+  width: 18px;
+  height: 18px;
+  color: var(--dark-gray);
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 0.8rem;
+  }
+  
+  .logo h1 {
+    font-size: 1.3rem;
+  }
+  
+  .auth-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+}
