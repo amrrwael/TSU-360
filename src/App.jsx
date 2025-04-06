@@ -1,10 +1,17 @@
-import { useState } from 'react'
-import './App.css'
-import HomeImg from './assets/head_cols.png'
-import Header from './components/Header'
+import { useState, useEffect } from 'react';
+import './App.css';
+import HomeImg from './assets/head_cols.png';
+import Header from './components/Header';
 
 function App() {
-  const [activeButton, setActiveButton] = useState(null)
+  const [activeButton, setActiveButton] = useState(null);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    // Check if user is authenticated on app load
+    const token = localStorage.getItem('authToken');
+    setIsAuthenticated(!!token);
+  }, []);
 
   return (
     <div className="app">
@@ -45,19 +52,20 @@ function App() {
               >
                 View Events
               </button>
-              <button 
-                className={`primary-btn ${activeButton === 'volunteer' ? 'active' : ''}`}
-                onClick={() => setActiveButton('volunteer')}
-              >
-                Volunteer
-              </button>
+              {isAuthenticated && (
+                <button 
+                  className={`primary-btn ${activeButton === 'volunteer' ? 'active' : ''}`}
+                  onClick={() => setActiveButton('volunteer')}
+                >
+                  Volunteer
+                </button>
+              )}
             </div>
           </div>
         </div>
       </main>
-
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
