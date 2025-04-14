@@ -28,6 +28,16 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.logo:hover {
+  transform: scale(1.02);
+}
+
+.logo:focus {
+  outline: none;
 }
 
 .logo img {
@@ -35,7 +45,7 @@
 }
 
 .logo h1 {
-  color: #0072BC;
+  color: #0072bc;
   font-weight: 700;
   font-size: 1.5rem;
   white-space: nowrap;
@@ -81,6 +91,75 @@
 }
 
 .profile-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.profile-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+  transition: left 0.7s ease;
+  z-index: -1;
+}
+
+.profile-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(37, 99, 235, 0.4);
+}
+
+.profile-btn:hover::before {
+  left: 100%;
+}
+
+.profile-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+}
+
+.profile-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+}
+
+.profile-text {
+  width: auto;
+  white-space: nowrap;
+}
+
+.logout-btn {
+  background-color: transparent;
+  color: #dc2626;
+  border: 2px solid #dc2626;
+}
+
+.logout-btn:hover {
+  background-color: rgba(220, 38, 38, 0.1);
+}
+
+.profile-icon-btn {
   width: 36px;
   height: 36px;
   border-radius: 50%;
@@ -92,7 +171,7 @@
   cursor: pointer;
 }
 
-.profile-btn svg {
+.profile-icon-btn svg {
   width: 18px;
   height: 18px;
   color: var(--dark-gray);
@@ -111,5 +190,202 @@
     width: 70px;
     padding: 0.4rem 0.8rem;
     font-size: 0.9rem;
+  }
+}
+.logout-btn {
+  background-color: transparent;
+  color: #dc2626;
+  border: 2px solid #dc2626;
+}
+
+.logout-btn:hover {
+  background-color: rgba(220, 38, 38, 0.1);
+}
+
+.profile-btn {
+  background-color: var(--primary-blue);
+  color: var(--white);
+  width: auto;
+  padding: 0.5rem 1rem;
+}
+
+.profile-btn:hover {
+  background-color: var(--secondary-blue);
+}
+
+.profile-icon-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--gray);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.profile-icon-btn svg {
+  width: 18px;
+  height: 18px;
+  color: var(--dark-gray);
+}
+
+/* Adjust the right-side layout */
+.right-side {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: auto;
+}
+
+.welcome-text {
+  color: var(--primary-blue);
+  font-weight: 500;
+  margin-right: 1rem;
+  white-space: nowrap;
+  font-size: 0.9rem;
+}
+
+/* Update the right-side layout */
+.right-side {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: auto;
+}
+
+/* Ensure profile and logout buttons have consistent styling */
+.profile-btn {
+  background-color: var(--primary-blue);
+  color: var(--white);
+  width: auto;
+  padding: 0.5rem 1rem;
+  border: none;
+}
+
+.profile-btn:hover {
+  background-color: var(--secondary-blue);
+}
+
+.logout-btn {
+  background-color: transparent;
+  color: #dc2626;
+  border: 2px solid #dc2626;
+}
+
+.logout-btn:hover {
+  background-color: rgba(220, 38, 38, 0.1);
+}
+
+.profile-icon-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--gray);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.profile-icon-btn svg {
+  width: 18px;
+  height: 18px;
+  color: var(--dark-gray);
+}
+
+@media (max-width: 768px) {
+  .welcome-text {
+    display: none;
+  }
+
+  .auth-btn {
+    width: auto;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* From Uiverse.io by kennyotsu-monochromia */
+.Btn {
+  --black: #000000;
+  --ch-black: #141414;
+  --eer-black: #1b1b1b;
+  --night-rider: #2e2e2e;
+  --white: #ffffff;
+  --af-white: #f3f3f3;
+  --ch-white: #e1e1e1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 45px;
+  height: 45px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition-duration: .3s;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+  background-color: var(--af-white);
+}
+
+/* plus sign */
+.sign {
+  width: 100%;
+  transition-duration: .3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sign svg {
+  width: 17px;
+}
+
+.sign svg path {
+  fill: var(--night-rider);
+}
+/* text */
+.text {
+  position: absolute;
+  right: 0%;
+  width: 0%;
+  opacity: 0;
+  color: var(--night-rider);
+  font-size: 1.2em;
+  font-weight: 600;
+  transition-duration: .3s;
+}
+/* hover effect on button width */
+.Btn:hover {
+  width: 125px;
+  border-radius: 5px;
+  transition-duration: .3s;
+}
+
+.Btn:hover .sign {
+  width: 70%;
+  transition-duration: .3s;
+  padding-right: 30px;
+}
+/* hover effect button's text */
+.Btn:hover .text {
+  opacity: 1;
+  width: 70%;
+  transition-duration: .3s;
+  padding-right: 10px;
+}
+/* button click effect*/
+.Btn:active {
+  transform: translate(2px, 2px);
+}
+
+@media (max-width: 768px) {
+  .profile-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
   }
 }

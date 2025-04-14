@@ -111,7 +111,6 @@ body {
 
 /* Main Content */
 .content {
-  
   position: relative;
   z-index: 2;
   display: flex;
@@ -129,7 +128,6 @@ body {
   justify-content: center;
   text-align: center;
 }
-
 
 .text-content {
   position: absolute;
@@ -149,35 +147,71 @@ body {
 }
 
 .text-content p {
-  font-size: 1.1rem;
+  font-size: clamp(0.9rem, 3vw, 1.1rem);
   line-height: 1.6;
   opacity: 0.9;
 }
 
 .cta-buttons {
   display: flex;
-  gap: 1rem;
-  
+  justify-content: center;
+  margin-top: 2rem;
 }
 
 .primary-btn {
-  padding: 0.8rem 1.8rem;
-  border-radius: 8px;
+  padding: 0.9rem 2.2rem;
+  border-radius: 12px;
   font-weight: 600;
-  font-size: 1rem;
-  background-color: var(--white);
-  color: var(--primary-blue);
-  border: none;
+  font-size: 1.1rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.4);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.primary-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3));
+  z-index: -1;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
 }
 
 .primary-btn:hover {
-  background-color: var(--gray);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-3px);
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.3);
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.6);
 }
 
+.primary-btn:hover::before {
+  transform: scaleX(1);
+}
+
+.primary-btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
+}
+
+.primary-btn.active {
+  background-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
 
 /* Footer */
 .footer {
@@ -199,7 +233,7 @@ body {
   .blue-triangle {
     width: 80%;
   }
-  
+
   .text-content {
     margin-left: 5%;
     background-color: rgba(37, 99, 235, 0.7);
@@ -214,25 +248,25 @@ body {
     clip-path: none;
     opacity: 0.9;
   }
-  
+
   .content {
     flex-direction: column;
     margin-top: 60px;
   }
-  
+
   .content-left {
     display: none;
   }
-  
+
   .text-content {
     margin: 2rem auto;
     background-color: rgba(37, 99, 235, 0.8);
   }
-  
+
   .text-content h2 {
     font-size: 2.2rem;
   }
-  
+
   .cta-buttons {
     flex-direction: column;
   }
